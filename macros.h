@@ -16,11 +16,30 @@
 
 
 #pragma once
+#include <stdio.h>
+#include <time.h>
+#ifdef RANDICT
+#include "users/ridingqwerty/dict.h"
+#endif
 
 bool is_alt_tab_active = false;
 uint16_t alt_tab_timer = 0;
 uint16_t typing_mode;
+uint16_t repeat_mode;
+uint16_t rand_key;
 uint8_t temp_keycode;
+uint8_t prev_upper;
+uint8_t prev_lower;
+bool uppercase;
+bool randword_seed = false;
+
+void keyboard_post_init_kb(void) {
+    repeat_mode = KC_NOMODE;
+    uppercase = false;
+    prev_upper = 0;
+    prev_lower = 0;
+    keyboard_post_init_user();
+}
 
 #ifdef UNICODEMAP_ENABLE
 __attribute__ ((weak))
@@ -222,6 +241,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (keycode >= QK_MOD_TAP && keycode <= QK_MOD_TAP_MAX) {
         temp_keycode &= 0xFF;
     }
+
   switch (keycode) {
       case CP_PSTE:
         if (record->event.pressed) {
@@ -361,6 +381,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
+      case KC_SBOB:
+        if (record->event.pressed) {
+            if (repeat_mode != KC_SBOB) {
+                dprint("Enabling Spongebob Mode\n");
+            }
+            uppercase = false;
+            prev_upper = 0;
+            prev_lower = 0;
+            repeat_mode = keycode;
+        }
+        return false;
+
+#ifdef RANDICT
+      case RWORD:
+        if (randword_seed == false) {
+          randword_seed = true;
+          srand(timer_read32());
+        }
+        rand_key = rand() % NUMBER_OF_WORDS;
+        if (record->event.pressed) {
+          send_string(dict[rand_key]);
+          tap_code(KC_SPC);
+        }
+        break;
+#endif
+
 /*      case NANORESET:
         if (record->event.pressed) {
             nanoboot_jump(void);
@@ -390,7 +436,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
       case MAKE:
         if (!record->event.pressed) {
-          //SEND_STRING("cd qmk_firmware"SS_TAP(X_ENTER)SS_DELAY(500));
           SEND_STRING("make " QMK_KEYBOARD ":" QMK_KEYMAP
 #if (defined(BOOTLOADER_DFU) || defined(BOOTLOADER_LUFA_DFU) || defined(BOOTLOADER_QMK_DFU))
                           ":dfu"
@@ -416,13 +461,47 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       } else {
           if (typing_mode == TM_AUSSIE) {return process_record_aussie(temp_keycode, record);}
           if (typing_mode == TM_ZALGO) {return process_record_zalgo(temp_keycode, record);}
-          //if (typing_mode == MODE_WOWMODE) {return process_record_glyph_replacement(keycode, record, unicode_range_translator_wowmode);}
-          //if (typing_mode == MODE_D3MODE) {return process_record_glyph_replacement(keycode, record, unicode_range_translator_d3mode);}
       }
   }
 #endif
     return true;
 };
+
+bool process_record_spongebob(uint16_t keycode, keyrecord_t *record) {
+    if (keycode == KC_ENTER && record->event.pressed) {
+        uppercase = false;
+        return process_record_user(keycode, record);
+    }
+
+    if (uppercase == false && record->event.pressed) {
+        uppercase = true;
+        return process_record_user(keycode, record);
+    }
+
+    if ((KC_A <= keycode) && (keycode <= KC_Z)) {
+        if (record->event.pressed) {
+            bool press = (TCNT0 + TCNT1 + TCNT3 + TCNT4) % 2;
+
+            if (prev_upper > 2) { //if more than 3 lower case charaters in a row, print uppercase letter.
+                prev_upper = 0;
+                press = false;
+            } else if (prev_lower > 2) { // if more than 3 upper case charaters in a row, print lower case letter.
+                prev_lower = 0;
+                press = true;
+            }
+            if (press) {
+                prev_upper++;
+                tap_code16(S(keycode));
+                clear_mods();
+            } else {
+                prev_lower++;
+                tap_code16(keycode);
+            }
+        }
+        return false;
+    }
+    return process_record_user(keycode, record);
+}
 
 void matrix_scan_user(void) {
   if (is_alt_tab_active) {

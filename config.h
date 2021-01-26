@@ -58,6 +58,7 @@
 #endif
 
 #define NANOBOOT
+#define RANDICT //this literally adds 8000 bytes to your compiled firmware
 
 #ifdef UNICODEMAP_ENABLE
 #define UNICODE_SELECTED_MODES UC_WINC, UC_MAC, UC_LNX
@@ -87,3 +88,5 @@
   #define COMBO_COUNT 13
   #define COMBO_TERM 50
 #endif
+
+

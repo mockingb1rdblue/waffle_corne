@@ -66,6 +66,8 @@ enum custom_keycodes {
   NKINV,
   VIA,
   CD1,
+  KC_SBOB,
+  RWORD,
   ALT_TAB,
   MAKE,
   NANORESET,
