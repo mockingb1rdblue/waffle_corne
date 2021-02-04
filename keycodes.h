@@ -18,6 +18,7 @@
 
 enum layers {
   _QWERTY,
+  _MAC,
   _LOWER,
   _RAISE,
 };
@@ -82,24 +83,33 @@ enum custom_keycodes {
   KC_D3MODE
 };
 
+//---layers---
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
+#define MAC DF(_MAC)
+#define WIN DF(_QWERTY)
+//---general---
 #define SFA SFT_T(KC_A)
 #define SFCLN RSFT_T(KC_SCLN)
-#define CTLSLH RCTL_T(KC_SLSH)
 #define SFEXM MT(MOD_LSFT, KC_F23)
 #define SFPRN MT(MOD_RSFT, KC_F24)
-#define CTLESC CTL_T(KC_ESC)
-#define CTLTZ CTL_T(KC_Z)
-#define CTLNXT RCTL_T(KC_MNXT)
+//---windows---
 #define GPSCR G(KC_PSCR)
+#define CTLTZ CTL_T(KC_Z)
+#define CTLESC CTL_T(KC_ESC)
+#define CTLSLH CTL_T(KC_SLSH)
+//---mac---
 #define MPSCR G(S(KC_4))
-#define CTLBSP ALT_T(KC_DEL)
-#define SFL SFT_T(KC_L)
+#define MACTAB G(KC_TAB)
+#define CMDZ CMD_T(KC_Z)
+#define CMDESC CMD_T(KC_ESC)
+#define CMDSLSH CMD_T(KC_SLSH)
+//---tap dance---
 #define HAPSAD TD(HAP_SAD)
 #define DOCSTD TD(DOCS)
 #define LINKSTD TD(LINKS)
 #define QMKTD TD(QMK)
+//---unicode---
 #define ZHAP X(SIDE)
 #define ARWUP X(UPAR)
 #define STARX X(STAR)

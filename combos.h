@@ -18,7 +18,6 @@
 
 enum combos {
   RU_ENT,
-  EI_BSP,
   GH_QUOT,
   VM_QUES,
   CM_DQUO,
@@ -29,11 +28,12 @@ enum combos {
   NM_WHU,
   SD_MSD,
   KL_MSU,
-  XC_CLICK
+  XC_CLICK,
+  MACMD,
+  WINMD
 };
 
 const uint16_t PROGMEM ru_combo[] = {KC_R, KC_U, COMBO_END};
-const uint16_t PROGMEM ei_combo[] = {KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM gh_combo[] = {KC_G, KC_H, COMBO_END};
 const uint16_t PROGMEM vm_combo[] = {KC_V, KC_M, COMBO_END};
 const uint16_t PROGMEM cm_combo[] = {KC_C, KC_M, COMBO_END};
@@ -45,10 +45,11 @@ const uint16_t PROGMEM nm_combo[] = {KC_N, KC_M, COMBO_END};
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM click_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM mac_combo[] = {KC_Z, KC_P, COMBO_END};
+const uint16_t PROGMEM win_combo[] = {KC_Q, KC_M, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
 [RU_ENT] = COMBO(ru_combo, KC_ENT),
-[EI_BSP] = COMBO(ei_combo, CTLBSP),
 [GH_QUOT] = COMBO(gh_combo, KC_QUOT),
 [VM_QUES] = COMBO(vm_combo, KC_QUES),
 [CM_DQUO] = COMBO(cm_combo, KC_DQUO),
@@ -60,6 +61,8 @@ combo_t key_combos[COMBO_COUNT] = {
 [SD_MSD] = COMBO(sd_combo, KC_MS_D),
 [KL_MSU] = COMBO(kl_combo, KC_MS_U),
 [XC_CLICK] = COMBO_ACTION(click_combo),
+[MACMD] = COMBO_ACTION(mac_combo),
+[WINMD] = COMBO_ACTION(win_combo),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -69,5 +72,17 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         SEND_STRING(SS_DOWN(X_TAB)SS_TAP(X_ENTER)SS_UP(X_TAB)SS_TAP(X_ENTER));
       }
       break;
+
+    case MACMD:
+        if (pressed) {
+            default_layer_set(1UL << _MAC);
+        }
+        break;
+
+    case WINMD:
+        if (pressed) {
+            default_layer_set(1UL << _QWERTY);
+        }
+        break;
   }
 }

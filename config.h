@@ -14,12 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #pragma once
 
-#define EE_HANDS
-//#defne MASTER_RIGHT
-//#define MASTER_LEFT
+//#define EE_HANDS
+//#define MASTER_RIGHT
+#define MASTER_LEFT
 
 #define USE_SERIAL_PD2
 
@@ -57,8 +56,8 @@
 #define OLED_FONT_H "keyboards/crkbd/keymaps/waffle/glcdfont.c"
 #endif
 
-#define NANOBOOT
-#define RANDICT //this literally adds 8000 bytes to your compiled firmware
+//#define NANOBOOT
+//#define RANDICT //this literally adds 8000 bytes to your compiled firmware
 
 #ifdef UNICODEMAP_ENABLE
 #define UNICODE_SELECTED_MODES UC_WINC, UC_MAC, UC_LNX
@@ -85,7 +84,7 @@
 #define TAPPING_TERM 150
 
 #ifdef COMBO_ENABLE
-  #define COMBO_COUNT 13
+  #define COMBO_COUNT 14
   #define COMBO_TERM 50
 #endif
 
