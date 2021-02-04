@@ -310,12 +310,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
-      case SSH_PI:
-        if (record->event.pressed) {
-            SEND_STRING("ssh pi@applepi.local"SS_TAP(X_ENTER) SS_DELAY(2000) "Rasp91111"SS_TAP(X_ENTER));
-        } else {
-        }
-        break;
+#endif
 
       case CTLS:
         if (record->event.pressed) {
@@ -324,59 +319,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
-      case GIT:
-        if (record->event.pressed) {
-          SEND_STRING("https://github.com/qmk/qmk_firmware/find/master"SS_TAP(X_ENTER));
-        } else {
-        }
-        break;
-
-      case SETUP:
-        if (record->event.pressed) {
-          SEND_STRING("https://docs.qmk.fm/#/newbs_getting_started");
-        } else {
-        }
-        break;
-
-      case ZAD:
-        if (record->event.pressed) {
-          SEND_STRING("https://docs.qmk.fm/#/driver_installation_zadig");
-        } else {
-        }
-        break;
-
-      case CONF:
-        if (record->event.pressed) {
-          SEND_STRING("https://config.qmk.fm/#/"SS_TAP(X_ENTER));
-        } else {
-        }
-        break;
-
-      case MMAP:
-        if (record->event.pressed) {
-            SEND_STRING(":checkpinsbich:"SS_TAP(X_ENTER)SS_TAP(X_ENTER));
-            SEND_STRING("https://www.mechmap.tech/themap"SS_TAP(X_ENTER));
-        } else {
-        }
-        break;
-
-      case NKINV:
-        if (record->event.pressed) {
-            SEND_STRING("NovelKeys Inventory Updates - https://novelkeys.xyz/pages/inventory");
-        } else {
-        }
-        break;
-
       case VIA:
         if (record->event.pressed) {
             SEND_STRING("https://caniusevia.com/docs/download_firmware"SS_TAP(X_ENTER));
-        } else {
-        }
-        break;
-
-      case CD1:
-        if (record->event.pressed) {
-          SEND_STRING("cd qmk_firmware"SS_TAP(X_ENTER));
         } else {
         }
         break;
@@ -419,7 +364,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             typing_mode = keycode - KC_REGIONAL;
           }
           return true;
-#endif
 
       case ALT_TAB:
         if (record->event.pressed) {
