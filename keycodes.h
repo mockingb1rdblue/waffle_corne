@@ -18,7 +18,6 @@
 
 enum layers {
   _QWERTY,
-  _MAC,
   _LOWER,
   _RAISE,
 };
@@ -52,6 +51,7 @@ enum typing_mode {
 
 enum custom_keycodes {
   CP_PSTE = SAFE_RANGE,
+  MAC_PSTE,
   UNIT,
   UNIT2,
   UNIT3,

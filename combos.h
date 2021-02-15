@@ -22,6 +22,7 @@ enum combos {
   VM_QUES,
   CM_DQUO,
   TY_COLN,
+  BN_UNDS,
   DF_BTN1,
   JK_BTN2,
   VB_WHD,
@@ -38,6 +39,7 @@ const uint16_t PROGMEM gh_combo[] = {KC_G, KC_H, COMBO_END};
 const uint16_t PROGMEM vm_combo[] = {KC_V, KC_M, COMBO_END};
 const uint16_t PROGMEM cm_combo[] = {KC_C, KC_M, COMBO_END};
 const uint16_t PROGMEM ty_combo[] = {KC_T, KC_Y, COMBO_END};
+const uint16_t PROGMEM bn_combo[] = {KC_B, KC_N, COMBO_END};
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM vb_combo[] = {KC_V, KC_B, COMBO_END};
@@ -54,6 +56,7 @@ combo_t key_combos[COMBO_COUNT] = {
 [VM_QUES] = COMBO(vm_combo, KC_QUES),
 [CM_DQUO] = COMBO(cm_combo, KC_DQUO),
 [TY_COLN] = COMBO(ty_combo, KC_COLN),
+[BN_UNDS] = COMBO(bn_combo, KC_UNDS),
 [DF_BTN1] = COMBO(df_combo, KC_BTN1),
 [JK_BTN2] = COMBO(jk_combo, KC_BTN2),
 [VB_WHD] = COMBO(vb_combo, KC_WH_D),
@@ -75,7 +78,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 
     case MACMD:
         if (pressed) {
-            default_layer_set(1UL << _MAC);
+            default_layer_set(1UL << _QWERTY);
         }
         break;
 

@@ -56,7 +56,7 @@
 #define OLED_FONT_H "keyboards/crkbd/keymaps/waffle/glcdfont.c"
 #endif
 
-//#define NANOBOOT
+#define NANOBOOT
 //#define RANDICT //this literally adds 8000 bytes to your compiled firmware
 
 #ifdef UNICODEMAP_ENABLE
@@ -84,7 +84,7 @@
 #define TAPPING_TERM 150
 
 #ifdef COMBO_ENABLE
-  #define COMBO_COUNT 14
+  #define COMBO_COUNT 16
   #define COMBO_TERM 50
 #endif
 
