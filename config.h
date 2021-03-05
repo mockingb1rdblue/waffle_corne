@@ -1,4 +1,4 @@
-/* Copyright 2020 @wafflekeebs/@waffle#6666
+/* Copyright 2021 @Itswaffle/@waffle#6666
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,11 +16,16 @@
 
 #pragma once
 
-//#define EE_HANDS
+#define EE_HANDS
 //#define MASTER_RIGHT
-#define MASTER_LEFT
+//#define MASTER_LEFT
 
 #define USE_SERIAL_PD2
+#define LAYER_STATE_8BIT
+#define FELIX
+#define BONGO
+//#define NANOBOOT //nanoboot bootloader support
+//#define RANDICT //this literally adds 8000 bytes to your compiled firmware
 
 #ifdef RGBLIGHT_ENABLE
     #undef RGBLED_NUM
@@ -84,7 +89,7 @@
 #define TAPPING_TERM 150
 
 #ifdef COMBO_ENABLE
-  #define COMBO_COUNT 16
+  #define COMBO_COUNT 17
   #define COMBO_TERM 50
 #endif
 
