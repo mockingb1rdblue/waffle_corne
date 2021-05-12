@@ -1273,17 +1273,6 @@ F 3 "" H 4750 6150 50  0001 C CNN
 	1    4750 6150
 	0    -1   -1   0   
 $EndComp
-$Comp
-L Device:D D40
-U 1 1 5C25F953
-P 2865 6200
-F 0 "D40" H 2860 6125 50  0000 C CNN
-F 1 "D" H 2865 6055 50  0000 C CNN
-F 2 "kbd:D3_TH" H 2865 6200 50  0001 C CNN
-F 3 "" H 2865 6200 50  0001 C CNN
-	1    2865 6200
-	-1   0    0    1   
-$EndComp
 Text GLabel 1350 4050 1    60   Input ~ 0
 col1_r
 Text GLabel 650  4050 1    60   Input ~ 0
@@ -1545,8 +1534,6 @@ Connection ~ 2750 4800
 Wire Wire Line
 	2750 4800 2750 5400
 Connection ~ 2750 5400
-Wire Wire Line
-	2750 5400 2750 6000
 Connection ~ 3450 4200
 Wire Wire Line
 	3450 4200 3450 4800
@@ -1674,49 +1661,13 @@ Text GLabel 5525 4750 0    50   Input ~ 0
 ENCA_r
 Text GLabel 5525 4850 0    50   Input ~ 0
 ENCB_r
-$Comp
-L Device:Rotary_Encoder_Switch SW40
-U 1 1 60A2FEB5
-P 2340 6100
-F 0 "SW40" H 1980 6305 50  0000 C CNN
-F 1 "Rotary_Encoder_Switch" H 2340 6376 50  0000 C CNN
-F 2 "Encoder:RollerEncoder_Panasonic_EVQWGD001" H 2190 6260 50  0001 C CNN
-F 3 "~" H 2340 6360 50  0001 C CNN
-	1    2340 6100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2640 6000 2750 6000
-Wire Wire Line
-	2640 6200 2715 6200
 Wire Wire Line
 	2715 6300 3015 6300
-Wire Wire Line
-	3015 6200 3015 6300
 Connection ~ 3015 6300
 Wire Wire Line
 	3015 6300 4050 6300
 Wire Wire Line
 	2715 6300 2715 6355
-Text GLabel 2040 6200 0    50   Input ~ 0
-ENCB_r
-Text GLabel 2040 6000 0    50   Input ~ 0
-ENCA_r
-Wire Wire Line
-	2040 6100 1595 6100
-Wire Wire Line
-	1595 6100 1595 6135
-$Comp
-L power:GNDA #PWR0109
-U 1 1 60AB2371
-P 1595 6135
-F 0 "#PWR0109" H 1595 5885 50  0001 C CNN
-F 1 "GNDA" H 1600 5962 50  0000 C CNN
-F 2 "" H 1595 6135 50  0001 C CNN
-F 3 "" H 1595 6135 50  0001 C CNN
-	1    1595 6135
-	1    0    0    -1  
-$EndComp
 Text GLabel 5525 1875 0    50   Input ~ 0
 ENCA
 Text GLabel 5525 1975 0    50   Input ~ 0
@@ -1762,6 +1713,55 @@ F 1 "GND" H 1640 2722 50  0000 C CNN
 F 2 "" H 1635 2895 50  0001 C CNN
 F 3 "" H 1635 2895 50  0001 C CNN
 	1    1635 2895
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3015 6200 3015 6300
+$Comp
+L Device:D D40
+U 1 1 5C25F953
+P 2865 6200
+F 0 "D40" H 2860 6125 50  0000 C CNN
+F 1 "D" H 2865 6055 50  0000 C CNN
+F 2 "kbd:D3_TH" H 2865 6200 50  0001 C CNN
+F 3 "" H 2865 6200 50  0001 C CNN
+	1    2865 6200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2640 6200 2715 6200
+Wire Wire Line
+	2750 5400 2750 6000
+Wire Wire Line
+	2640 6000 2750 6000
+$Comp
+L power:GNDA #PWR0109
+U 1 1 60AB2371
+P 1595 6135
+F 0 "#PWR0109" H 1595 5885 50  0001 C CNN
+F 1 "GNDA" H 1600 5962 50  0000 C CNN
+F 2 "" H 1595 6135 50  0001 C CNN
+F 3 "" H 1595 6135 50  0001 C CNN
+	1    1595 6135
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1595 6100 1595 6135
+Wire Wire Line
+	2040 6100 1595 6100
+Text GLabel 2040 6000 0    50   Input ~ 0
+ENCA_r
+Text GLabel 2040 6200 0    50   Input ~ 0
+ENCB_r
+$Comp
+L Device:Rotary_Encoder_Switch SW40
+U 1 1 60A2FEB5
+P 2340 6100
+F 0 "SW40" H 1980 6305 50  0000 C CNN
+F 1 "Rotary_Encoder_Switch" H 2340 6376 50  0000 C CNN
+F 2 "Encoder:RollerEncoder_Panasonic_EVQWGD001" H 2190 6260 50  0001 C CNN
+F 3 "~" H 2340 6360 50  0001 C CNN
+	1    2340 6100
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

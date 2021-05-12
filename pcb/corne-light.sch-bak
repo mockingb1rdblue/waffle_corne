@@ -6,9 +6,9 @@ encoding utf-8
 Sheet 1 1
 Title "Corne Light"
 Date "2020-10-13"
-Rev "2.0"
-Comp "foostan"
-Comment1 ""
+Rev "WAFFLE.0"
+Comp "foostan & waffle"
+Comment1 "with horizontal encoder"
 Comment2 ""
 Comment3 ""
 Comment4 ""
@@ -465,26 +465,15 @@ F 3 "" H 4725 2900 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L corne-light-rescue:SW_PUSH-kbd SW19
-U 1 1 5A5E37EC
-P 3025 2750
-F 0 "SW19" H 3175 2860 50  0000 C CNN
-F 1 "SW_PUSH" H 3025 2670 50  0000 C CNN
-F 2 "kbd:CherryMX_ChocV2_1u" H 3025 2750 50  0001 C CNN
-F 3 "" H 3025 2750 50  0000 C CNN
-	1    3025 2750
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:D D19
 U 1 1 5A5E37F2
-P 3325 2900
-F 0 "D19" H 3325 3000 50  0000 C CNN
-F 1 "D" H 3325 2800 50  0000 C CNN
-F 2 "kbd:D3_TH" H 3325 2900 50  0001 C CNN
-F 3 "" H 3325 2900 50  0001 C CNN
-	1    3325 2900
-	0    -1   -1   0   
+P 2820 2950
+F 0 "D19" H 2825 2875 50  0000 C CNN
+F 1 "D" H 2825 2815 50  0000 C CNN
+F 2 "kbd:D3_TH" H 2820 2950 50  0001 C CNN
+F 3 "" H 2820 2950 50  0001 C CNN
+	1    2820 2950
+	-1   0    0    1   
 $EndComp
 Text GLabel 1325 800  1    60   Input ~ 0
 col1
@@ -504,7 +493,7 @@ Text GLabel 1075 1850 0    60   Input ~ 0
 row1
 Text GLabel 1075 2450 0    60   Input ~ 0
 row2
-Text GLabel 3150 3050 0    60   Input ~ 0
+Text GLabel 2645 3120 3    60   Input ~ 0
 row3
 $Comp
 L power:GND #PWR03
@@ -643,11 +632,9 @@ reset
 Text GLabel 8325 825  0    60   Input ~ 0
 reset
 NoConn ~ 6925 1975
-NoConn ~ 5525 1975
 Text GLabel 6925 1275 2    47   Input ~ 0
 col0
 NoConn ~ 6925 1875
-NoConn ~ 5525 1875
 Text GLabel 5525 1275 0    47   Input ~ 0
 SDA
 Text GLabel 5525 1375 0    47   Input ~ 0
@@ -701,7 +688,6 @@ F 3 "" H 8400 1875 50  0001 C CNN
 	1    8125 1700
 	1    0    0    -1  
 $EndComp
-Connection ~ 3325 3050
 Connection ~ 4025 3050
 Wire Wire Line
 	1075 2450 1225 2450
@@ -746,8 +732,6 @@ Wire Wire Line
 Wire Wire Line
 	8425 1725 8425 1825
 Wire Wire Line
-	3325 3050 4025 3050
-Wire Wire Line
 	4025 3050 4725 3050
 Wire Wire Line
 	5425 1175 5525 1175
@@ -781,8 +765,6 @@ Wire Wire Line
 	3325 1250 4025 1250
 Wire Wire Line
 	4025 1250 4725 1250
-Wire Wire Line
-	3150 3050 3325 3050
 Wire Wire Line
 	625  800  625  950 
 Wire Wire Line
@@ -1294,12 +1276,12 @@ $EndComp
 $Comp
 L Device:D D40
 U 1 1 5C25F953
-P 2865 6200
-F 0 "D40" H 2860 6125 50  0000 C CNN
-F 1 "D" H 2865 6055 50  0000 C CNN
-F 2 "kbd:D3_TH" H 2865 6200 50  0001 C CNN
-F 3 "" H 2865 6200 50  0001 C CNN
-	1    2865 6200
+P 2865 6155
+F 0 "D40" H 2860 6080 50  0000 C CNN
+F 1 "D" H 2865 6010 50  0000 C CNN
+F 2 "kbd:D3_TH" H 2865 6155 50  0001 C CNN
+F 3 "" H 2865 6155 50  0001 C CNN
+	1    2865 6155
 	-1   0    0    1   
 $EndComp
 Text GLabel 1350 4050 1    60   Input ~ 0
@@ -1563,8 +1545,6 @@ Connection ~ 2750 4800
 Wire Wire Line
 	2750 4800 2750 5400
 Connection ~ 2750 5400
-Wire Wire Line
-	2750 5400 2750 6000
 Connection ~ 3450 4200
 Wire Wire Line
 	3450 4200 3450 4800
@@ -1692,47 +1672,101 @@ Text GLabel 5525 4750 0    50   Input ~ 0
 ENCA_r
 Text GLabel 5525 4850 0    50   Input ~ 0
 ENCB_r
-$Comp
-L Device:Rotary_Encoder_Switch SW40
-U 1 1 60A2FEB5
-P 2340 6100
-F 0 "SW40" H 1980 6305 50  0000 C CNN
-F 1 "Rotary_Encoder_Switch" H 2340 6376 50  0000 C CNN
-F 2 "Encoder:RollerEncoder_Panasonic_EVQWGD001" H 2190 6260 50  0001 C CNN
-F 3 "~" H 2340 6360 50  0001 C CNN
-	1    2340 6100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2640 6000 2750 6000
-Wire Wire Line
-	2640 6200 2715 6200
 Wire Wire Line
 	2715 6300 3015 6300
-Wire Wire Line
-	3015 6200 3015 6300
 Connection ~ 3015 6300
 Wire Wire Line
 	3015 6300 4050 6300
 Wire Wire Line
 	2715 6300 2715 6355
-Text GLabel 2040 6200 0    50   Input ~ 0
-ENCB_r
-Text GLabel 2040 6000 0    50   Input ~ 0
-ENCA_r
-Wire Wire Line
-	2040 6100 1595 6100
-Wire Wire Line
-	1595 6100 1595 6135
+Text GLabel 5525 1875 0    50   Input ~ 0
+ENCA
+Text GLabel 5525 1975 0    50   Input ~ 0
+ENCB
 $Comp
-L power:GNDA #PWR0109
-U 1 1 60AB2371
-P 1595 6135
-F 0 "#PWR0109" H 1595 5885 50  0001 C CNN
-F 1 "GNDA" H 1600 5962 50  0000 C CNN
-F 2 "" H 1595 6135 50  0001 C CNN
-F 3 "" H 1595 6135 50  0001 C CNN
-	1    1595 6135
+L Device:Rotary_Encoder_Switch SW19
+U 1 1 60B0394F
+P 2290 2850
+F 0 "SW19" H 1925 3050 50  0000 C CNN
+F 1 "Rotary_Encoder_Switch" H 2290 3126 50  0000 C CNN
+F 2 "Encoder:RollerEncoder_Panasonic_EVQWGD001" H 2140 3010 50  0001 C CNN
+F 3 "~" H 2290 3110 50  0001 C CNN
+	1    2290 2850
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	2590 2750 2725 2750
+Wire Wire Line
+	2590 2950 2670 2950
+Wire Wire Line
+	2645 3050 2645 3120
+Wire Wire Line
+	2645 3050 2970 3050
+Wire Wire Line
+	2970 2950 2970 3050
+Connection ~ 2970 3050
+Wire Wire Line
+	2970 3050 4025 3050
+Text GLabel 1990 2950 0    50   Input ~ 0
+ENCB
+Text GLabel 1990 2750 0    50   Input ~ 0
+ENCA
+Wire Wire Line
+	1990 2850 1635 2850
+Wire Wire Line
+	1635 2850 1635 2895
+$Comp
+L power:GND #PWR0110
+U 1 1 60BAD24A
+P 1635 2895
+F 0 "#PWR0110" H 1635 2645 50  0001 C CNN
+F 1 "GND" H 1640 2722 50  0000 C CNN
+F 2 "" H 1635 2895 50  0001 C CNN
+F 3 "" H 1635 2895 50  0001 C CNN
+	1    1635 2895
+	1    0    0    -1  
+$EndComp
+Text GLabel 2290 6255 2    50   Input ~ 0
+ENCB_r
+Text GLabel 2290 6355 2    50   Input ~ 0
+ENCA_r
+$Comp
+L power:GNDA #PWR0111
+U 1 1 609D6CD9
+P 2490 6670
+F 0 "#PWR0111" H 2490 6420 50  0001 C CNN
+F 1 "GNDA" H 2495 6497 50  0000 C CNN
+F 2 "" H 2490 6670 50  0001 C CNN
+F 3 "" H 2490 6670 50  0001 C CNN
+	1    2490 6670
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2290 6455 2490 6455
+Wire Wire Line
+	2490 6455 2490 6555
+Wire Wire Line
+	2290 6555 2490 6555
+Connection ~ 2490 6555
+Wire Wire Line
+	2490 6555 2490 6670
+$Comp
+L Connector_Generic:Conn_01x06 J3
+U 1 1 609C74A7
+P 2090 6355
+F 0 "J3" V 2270 6280 50  0000 L CNN
+F 1 "Conn_01x06" V 2185 6115 50  0000 L CNN
+F 2 "Encoder:RollerEncoder_Panasonic_EVQWGD001" H 2090 6355 50  0001 C CNN
+F 3 "~" H 2090 6355 50  0001 C CNN
+	1    2090 6355
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2750 5400 2750 6055
+Wire Wire Line
+	2290 6055 2750 6055
+Wire Wire Line
+	3015 6155 3015 6300
+Wire Wire Line
+	2290 6155 2715 6155
 $EndSCHEMATC
