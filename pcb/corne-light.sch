@@ -2633,7 +2633,7 @@ U 1 1 60C9E29B
 P 6825 3545
 F 0 "D1" H 6900 3725 50  0000 R CNN
 F 1 "D_Small" H 7005 3645 50  0000 R CNN
-F 2 "Keebio-Parts:Diode-Hybrid-Back" V 6825 3545 50  0001 C CNN
+F 2 "Keebio-Parts:Diode-hybrid-3pad" V 6825 3545 50  0001 C CNN
 F 3 "~" V 6825 3545 50  0001 C CNN
 	1    6825 3545
 	0    -1   -1   0   
@@ -2693,49 +2693,6 @@ Text GLabel 7025 2850 1    60   Input ~ 0
 col0
 Text GLabel 7510 2840 1    60   Input ~ 0
 col1
-Wire Wire Line
-	3285 1625 3360 1625
-Text GLabel 3360 1625 2    50   Input ~ 0
-PWM_r
-Wire Wire Line
-	2935 1825 2985 1825
-$Comp
-L Device:R_Small R21
-U 1 1 60ADB37B
-P 2835 1825
-F 0 "R21" V 2639 1825 50  0000 C CNN
-F 1 "1k" V 2730 1825 50  0000 C CNN
-F 2 "Keebio-Parts:R_0805" H 2835 1825 50  0001 C CNN
-F 3 "~" H 2835 1825 50  0001 C CNN
-	1    2835 1825
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:Q_NPN_BEC Q1
-U 1 1 60A1EE59
-P 3185 1825
-F 0 "Q1" H 3376 1871 50  0000 L CNN
-F 1 "Q_NPN_BEC" H 3376 1780 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 3385 1925 50  0001 C CNN
-F 3 "~" H 3185 1825 50  0001 C CNN
-	1    3185 1825
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2450 1825 2735 1825
-$Comp
-L power:GNDA #PWR0112
-U 1 1 60A4E817
-P 3285 2070
-F 0 "#PWR0112" H 3285 1820 50  0001 C CNN
-F 1 "GNDA" H 3290 1897 50  0000 C CNN
-F 2 "" H 3285 2070 50  0001 C CNN
-F 3 "" H 3285 2070 50  0001 C CNN
-	1    3285 2070
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3285 2025 3285 2070
 Text GLabel 2450 1625 2    47   Input ~ 0
 col5_r
 Text GLabel 2450 1525 2    47   Input ~ 0
@@ -2831,50 +2788,135 @@ F 3 "" H 6490 1325 50  0001 C CNN
 $EndComp
 NoConn ~ -2045 5365
 Wire Wire Line
-	5960 1830 6010 1830
-$Comp
-L Device:R_Small R22
-U 1 1 618DCBE6
-P 5860 1830
-F 0 "R22" V 5664 1830 50  0000 C CNN
-F 1 "1k" V 5755 1830 50  0000 C CNN
-F 2 "Keebio-Parts:R_0805" H 5860 1830 50  0001 C CNN
-F 3 "~" H 5860 1830 50  0001 C CNN
-	1    5860 1830
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:Q_NPN_BEC Q2
-U 1 1 618DCBF0
-P 6210 1830
-F 0 "Q2" H 6401 1876 50  0000 L CNN
-F 1 "Q_NPN_BEC" H 6401 1785 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 6410 1930 50  0001 C CNN
-F 3 "~" H 6210 1830 50  0001 C CNN
-	1    6210 1830
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
 	5545 1830 5760 1830
 Wire Wire Line
 	6310 1630 6385 1630
 Text GLabel 6385 1630 2    50   Input ~ 0
 PWM
-$Comp
-L power:GND #PWR0122
-U 1 1 61A16525
-P 6310 2075
-F 0 "#PWR0122" H 6310 1825 50  0001 C CNN
-F 1 "GND" H 6310 1925 50  0000 C CNN
-F 2 "" H 6310 2075 50  0001 C CNN
-F 3 "" H 6310 2075 50  0001 C CNN
-	1    6310 2075
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6310 2030 6310 2075
 Text GLabel 1050 725  0    50   Input ~ 0
 DIN_r
 Text GLabel 4145 730  0    50   Input ~ 0
 DIN
+$Comp
+L Transistor_FET:2N7002E Q2
+U 1 1 60A6FC42
+P 6210 1830
+F 0 "Q2" H 6414 1876 50  0000 L CNN
+F 1 "2N7002E" H 6414 1785 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6410 1755 50  0001 L CIN
+F 3 "http://www.diodes.com/assets/Datasheets/ds30376.pdf" H 6210 1830 50  0001 L CNN
+	1    6210 1830
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R43
+U 1 1 60B32049
+P 5860 1830
+F 0 "R43" V 5664 1830 50  0000 C CNN
+F 1 "470" V 5755 1830 50  0000 C CNN
+F 2 "Keebio-Parts:R_0805" H 5860 1830 50  0001 C CNN
+F 3 "~" H 5860 1830 50  0001 C CNN
+	1    5860 1830
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5960 1830 5990 1830
+$Comp
+L Device:R_Small R44
+U 1 1 60B544DB
+P 5990 2075
+F 0 "R44" H 6049 2121 50  0000 L CNN
+F 1 "10k" H 6049 2030 50  0000 L CNN
+F 2 "Keebio-Parts:R_0805" H 5990 2075 50  0001 C CNN
+F 3 "~" H 5990 2075 50  0001 C CNN
+	1    5990 2075
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5990 1975 5990 1830
+Connection ~ 5990 1830
+Wire Wire Line
+	5990 1830 6010 1830
+Wire Wire Line
+	6310 2030 6310 2175
+$Comp
+L power:GND #PWR0122
+U 1 1 60BB122F
+P 6310 2210
+F 0 "#PWR0122" H 6310 1960 50  0001 C CNN
+F 1 "GND" H 6315 2037 50  0000 C CNN
+F 2 "" H 6310 2210 50  0001 C CNN
+F 3 "" H 6310 2210 50  0001 C CNN
+	1    6310 2210
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5990 2175 6310 2175
+Connection ~ 6310 2175
+Wire Wire Line
+	6310 2175 6310 2210
+Wire Wire Line
+	2450 1825 2665 1825
+Wire Wire Line
+	3215 1625 3290 1625
+$Comp
+L Transistor_FET:2N7002E Q1
+U 1 1 60C25ED5
+P 3115 1825
+F 0 "Q1" H 3319 1871 50  0000 L CNN
+F 1 "2N7002E" H 3319 1780 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3315 1750 50  0001 L CIN
+F 3 "http://www.diodes.com/assets/Datasheets/ds30376.pdf" H 3115 1825 50  0001 L CNN
+	1    3115 1825
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R21
+U 1 1 60C25EDF
+P 2765 1825
+F 0 "R21" V 2569 1825 50  0000 C CNN
+F 1 "470" V 2660 1825 50  0000 C CNN
+F 2 "Keebio-Parts:R_0805" H 2765 1825 50  0001 C CNN
+F 3 "~" H 2765 1825 50  0001 C CNN
+	1    2765 1825
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2865 1825 2895 1825
+$Comp
+L Device:R_Small R22
+U 1 1 60C25EEA
+P 2895 2070
+F 0 "R22" H 2954 2116 50  0000 L CNN
+F 1 "10k" H 2954 2025 50  0000 L CNN
+F 2 "Keebio-Parts:R_0805" H 2895 2070 50  0001 C CNN
+F 3 "~" H 2895 2070 50  0001 C CNN
+	1    2895 2070
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2895 1970 2895 1825
+Connection ~ 2895 1825
+Wire Wire Line
+	2895 1825 2915 1825
+Wire Wire Line
+	3215 2025 3215 2170
+Wire Wire Line
+	2895 2170 3215 2170
+Connection ~ 3215 2170
+Wire Wire Line
+	3215 2170 3215 2205
+Text GLabel 3290 1625 2    50   Input ~ 0
+PWM_r
+$Comp
+L power:GNDA #PWR?
+U 1 1 60E4B44B
+P 3215 2205
+F 0 "#PWR?" H 3215 1955 50  0001 C CNN
+F 1 "GNDA" H 3220 2032 50  0000 C CNN
+F 2 "" H 3215 2205 50  0001 C CNN
+F 3 "" H 3215 2205 50  0001 C CNN
+	1    3215 2205
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
