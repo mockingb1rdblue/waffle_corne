@@ -452,7 +452,7 @@ F 3 "~" H 1800 3455 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1680 3355 1680 3495
+	1680 3355 1680 3430
 $Comp
 L Device:D_Small D43
 U 1 1 60C092BD
@@ -1345,8 +1345,6 @@ Text GLabel 1405 5280 0    60   Input ~ 0
 row2_r
 Text GLabel 1880 2900 1    60   Input ~ 0
 col0_r
-Wire Wire Line
-	1880 3155 1880 2900
 Connection ~ 1880 3155
 Wire Wire Line
 	2365 3155 2365 2890
@@ -2793,10 +2791,6 @@ Wire Wire Line
 	6310 1630 6385 1630
 Text GLabel 6385 1630 2    50   Input ~ 0
 PWM
-Text GLabel 1050 725  0    50   Input ~ 0
-DIN_r
-Text GLabel 4145 730  0    50   Input ~ 0
-DIN
 $Comp
 L Transistor_FET:2N7002E Q2
 U 1 1 60A6FC42
@@ -2965,4 +2959,33 @@ F 3 "" H 7285 2035 50  0001 C CNN
 	1    7285 2035
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	1880 3155 1880 2920
+$Comp
+L kbd:SW_PUSH SW2
+U 1 1 60B688E8
+P 1490 3130
+F 0 "SW2" H 1490 3265 50  0000 C CNN
+F 1 "SW_PUSH" H 1480 3335 50  0000 C CNN
+F 2 "MX_Alps_Hybrid:MX-1U" H 1490 3130 50  0001 C CNN
+F 3 "" H 1490 3130 50  0000 C CNN
+	1    1490 3130
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1490 2830 1770 2830
+Wire Wire Line
+	1770 2830 1770 2920
+Wire Wire Line
+	1770 2920 1880 2920
+Connection ~ 1880 2920
+Wire Wire Line
+	1880 2920 1880 2900
+Wire Wire Line
+	1490 3430 1680 3430
+Connection ~ 1680 3430
+Wire Wire Line
+	1680 3430 1680 3495
+NoConn ~ 1050 725 
+NoConn ~ 4145 730 
 $EndSCHEMATC
